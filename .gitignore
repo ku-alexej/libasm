@@ -3,3 +3,5 @@ objs/
 *.a
 # binaries
 test*
+# mac files
+**/.DS_Store
