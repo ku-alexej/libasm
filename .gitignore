@@ -1,7 +1,7 @@
 # Build artifacts
 objs/
 *.a
-# binaries
+# binaries and test files
 test*
 # mac files
 **/.DS_Store

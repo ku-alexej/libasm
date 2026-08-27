@@ -69,7 +69,7 @@ clean:
 	rm -rf $(OBJS_DIR)
 
 fclean: clean
-	rm -f $(NAME) $(TEST_NAME) $(TEST_BONUS_NAME)
+	rm -f $(NAME) $(TEST_NAME) $(TEST_BONUS_NAME) test_ft_read_write.txt
 
 re: fclean all
 
