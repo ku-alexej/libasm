@@ -3,7 +3,7 @@ section .text
 global ft_strlen
 
 ; ft_strlen - calculates the length of a null-terminated string
-; Input: rdi - pointer to the null-terminated string
+; Input:  rdi - pointer to the null-terminated string
 ; Output: rax - length of the string (number of characters before the null terminator)
 
 ft_strlen:

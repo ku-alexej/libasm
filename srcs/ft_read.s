@@ -4,9 +4,9 @@ global ft_read
 extern __errno_location
 
 ; ft_read - reads data from a file descriptor
-; Input: rdi - file descriptor (fd)
-;        rsi - pointer to buffer (buf)
-;        rdx - number of bytes to read (count)
+; Input:  rdi - file descriptor (fd)
+;         rsi - pointer to buffer (buf)
+;         rdx - number of bytes to read (count)
 ; Output: rax - number of bytes read on success, or -1 on error (errno set)
 
 ft_read:

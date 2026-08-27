@@ -3,8 +3,8 @@ section .text
 global ft_strcpy
 
 ; ft_strcpy.s - copies a null-terminated string from src to dest
-; Input: rdi - pointer to destination buffer (dest)
-;        rsi - pointer to source string (src)
+; Input:  rdi - pointer to destination buffer (dest)
+;         rsi - pointer to source string (src)
 ; Output: rax - pointer to destination buffer (dest)
 
 ft_strcpy:

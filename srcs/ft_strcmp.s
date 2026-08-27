@@ -3,8 +3,8 @@ section .text
 global ft_strcmp
 
 ; ft_strcmp - compares two null-terminated strings
-; Input: rdi - pointer to first string (s1)
-;        rsi - pointer to second string (s2)
+; Input:  rdi - pointer to first string (s1)
+;         rsi - pointer to second string (s2)
 ; Output: eax - result of comparison
 ;         0 if s1 == s2
 ;         negative if s1 < s2

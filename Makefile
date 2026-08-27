@@ -27,15 +27,15 @@ SRCS		= ft_strlen.s \
 			  ft_read.s \
 			  ft_strdup.s
 
-# BONUS_SRCS	= ft_atoi_base_bonus.s \
-# 			  ft_list_push_front_bonus.s \
-# 			  ft_list_size_bonus.s \
-# 			  ft_list_sort_bonus.s \
-# 			  ft_list_remove_if_bonus.s
+BONUS_SRCS	= ft_atoi_base_bonus.s \
+			  ft_list_push_front_bonus.s \
+			  ft_list_size_bonus.s \
+			  ft_list_sort_bonus.s \
+			  ft_list_remove_if_bonus.s
 
 # objects
 OBJS		= $(addprefix $(OBJS_DIR)/, $(SRCS:.s=.o))
-# BONUS_OBJS	= $(addprefix $(OBJS_DIR)/, $(BONUS_SRCS:.s=.o))
+BONUS_OBJS	= $(addprefix $(OBJS_DIR)/, $(BONUS_SRCS:.s=.o))
 
 ##########################################
 
@@ -44,8 +44,8 @@ all: $(NAME)
 $(NAME): $(OBJS_DIR) $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
-# bonus: $(OBJS_DIR) $(OBJS) $(BONUS_OBJS)
-# 	$(AR) $(ARFLAGS) $(NAME) $(OBJS) $(BONUS_OBJS)
+bonus: $(OBJS_DIR) $(OBJS) $(BONUS_OBJS)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS) $(BONUS_OBJS)
 
 $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
@@ -59,11 +59,11 @@ $(TEST_NAME): $(NAME) main.c
 test: $(TEST_NAME)
 	./$(TEST_NAME)
 
-# $(TEST_BONUS_NAME): bonus main_bonus.c
-# 	$(CC) $(CFLAGS) main_bonus.c -L. -lasm -o $(TEST_BONUS_NAME)
+$(TEST_BONUS_NAME): bonus main_bonus.c
+	$(CC) $(CFLAGS) main_bonus.c -L. -lasm -o $(TEST_BONUS_NAME)
 
-# test_bonus: $(TEST_BONUS_NAME)
-# 	./$(TEST_BONUS_NAME)
+test_bonus: $(TEST_BONUS_NAME)
+	./$(TEST_BONUS_NAME)
 
 clean:
 	rm -rf $(OBJS_DIR)

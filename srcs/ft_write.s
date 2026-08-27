@@ -4,9 +4,9 @@ global ft_write
 extern __errno_location
 
 ; ft_write - writes data to a file descriptor
-; Input: rdi - file descriptor (fd)
-;        rsi - pointer to buffer (buf)
-;        rdx - number of bytes to write (count)
+; Input:  rdi - file descriptor (fd)
+;         rsi - pointer to buffer (buf)
+;         rdx - number of bytes to write (count)
 ; Output: rax - number of bytes written on success
 ;         -1 on error, with errno set appropriately
 

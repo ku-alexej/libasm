@@ -2,12 +2,9 @@ section .text
 
 global ft_list_size
 
-; ft_list_size - returns size otf the list
+; ft_list_size - returns size of the list
 ; Input:  rdi - t_list *begin_list
 ; Output: rax - size of the list
-
-; unsigned int ft_list_size(t_list *begin_list);
-; rdi = begin_list
 
 ft_list_size:
     xor     eax, eax            ; size = 0
@@ -20,4 +17,4 @@ ft_list_size:
     jmp     .loop               ; repeat steps   
 
 .done:
-    ret                         ; rex contains size of the list
+    ret                         ; rax = size
