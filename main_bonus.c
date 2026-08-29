@@ -119,7 +119,7 @@ static void test_atoi_base(void)
         int expected = (int)strtol(casesBaseTen[i].str, (char **)NULL, 10);
 
         printf(
-            "ft_atoi_base(%-12s, %-18s) "
+            "ft_atoi_base(%s, %s) "
             "got=[%d] "
             "expected=[%d] "
             "[%s]\n",
@@ -137,8 +137,8 @@ static void test_atoi_base(void)
         int got = ft_atoi_base(casesBases[i].str, casesBases[i].base);
 
         printf(
-            "ft_atoi_base(%-12s, %-18s) "
-            "got=[%d]",
+            "ft_atoi_base(%s, %s) "
+            "got=[%d]\n",
             casesBases[i].str,
             casesBases[i].base,
             got);
@@ -150,6 +150,31 @@ static void print_list(t_list *list)
     for (t_list *n = list; n; n = n->next)
         printf("%d ", *(int *)n->data);
     printf("\n");
+}
+
+static void free_noop(void *p)
+{
+	(void)p;
+}
+
+void ft_list_clear(t_list **begin_list, void (*free_fct)(void *))
+{
+    t_list *current;
+    t_list *next;
+
+    if (!begin_list)
+        return;
+
+    current = *begin_list;
+    while (current)
+    {
+        next = current->next;
+        if (free_fct)
+            free_fct(current->data);
+        free(current);
+        current = next;
+    }
+    *begin_list = NULL;
 }
 
 static void test_list_push_front_and_size(void)
@@ -167,6 +192,8 @@ static void test_list_push_front_and_size(void)
 
     printf("after 3 pushes, size=%u, order: ", ft_list_size(list));
     print_list(list); /* expect: 3 2 1 */
+
+	ft_list_clear(&list, free_noop);
 }
 
 static int cmp_int(void *a, void *b)
@@ -191,11 +218,8 @@ static void test_list_sort(void)
 
     printf("after sort:  ");
     print_list(list); /* expect ascending: 1 1 2 3 4 5 6 9 */
-}
 
-static void free_noop(void *p)
-{
-    (void)p;
+	ft_list_clear(&list, free_noop);
 }
 
 static void test_list_remove_if(void)
@@ -217,6 +241,8 @@ static void test_list_remove_if(void)
 
     printf("after remove_if:  ");
     print_list(list); /* expect: 2 3 */
+
+	ft_list_clear(&list, free_noop);
 }
 
 int main(void)
